@@ -1,18 +1,17 @@
-# Salim Ansari — Anime-Inspired Personal Portfolio Website 🌸🏔️
+# Salim Ansari — Personal AI Portfolio Website ⚡💼
 
-A responsive, anime-inspired developer portfolio website crafted for **Salim Ansari** (*Third-Year B.Tech Computer Science Engineering student specializing in Artificial Intelligence & Machine Learning at Symbiosis Institute of Technology, Nagpur*).
+A high-performance, modern developer portfolio website crafted for **Salim Ansari** (*Third-Year B.Tech Computer Science Engineering student specializing in Artificial Intelligence & Machine Learning at Symbiosis Institute of Technology, Nagpur*).
 
 ---
 
 ## ✨ Key Features
 
-1. **Signature Tiny Walking Anime Character (`src/components/TopWalkingBanner.tsx`)**
-   - Original articulated SVG chibi character representing Salim (casual hoodie, black backpack, expressive blinking eyes, and multi-limb walking cycle).
-   - Continuously walks along a panoramic sky track featuring cherry blossoms, a red Torii gate, Mt. Fuji, and the *"Small Steps, Big Dreams"* motto.
-   - Smoothly reverses direction at path bounds, persists across section navigation without restarting, waves/jumps with section-aware speech bubbles on hover/click, and respects `prefers-reduced-motion`.
+1. **Walking AI Engineer Character Runway (`src/components/TopWalkingBanner.tsx`)**
+   - High-contrast black & white AI engineer character in sleek executive attire with 4-phase human walk cycle sprite animation.
+   - Smoothly traverses the top cybernetic runway, syncs tempo with music playback, and pauses with interactive greetings.
 
-2. **Breathtaking Hero & Bento Dashboard (`src/components/HeroAndBentoSection.tsx`)**
-   - Matches the reference UI layout: layered anime sky scenery, *"Ideas / Code / Impact"* sky note, gradient serif typography, **Explore My Work** & **Let's Connect** pill CTAs, 3-column bento overview (**About Me**, **Education**, **Technical Skills**), and **Featured Projects** strip.
+2. **Executive Cyber Bento Dashboard (`src/components/HeroAndBentoSection.tsx`)**
+   - Sleek cybernetic dark executive theme, vector typography, **Explore My Work** & **Let's Connect** CTAs, 3-column bento overview (**About Me**, **Education**, **Technical Skills**), and **Featured Projects** strip.
 
 3. **Full Portfolio Sections**
    - **About Me & Career Interests (`#about`)**: Interactive Developer Journal with tabs for *My Story*, *Learning Goals*, and *Career & Internship Interests*, plus a decorative Study Club note.

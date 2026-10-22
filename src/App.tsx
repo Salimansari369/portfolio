@@ -19,14 +19,10 @@ import { Footer } from './components/Footer';
 import { ProjectModal } from './components/ProjectModal';
 import { ImageLightbox } from './components/ImageLightbox';
 import { QuickCustomizeModal } from './components/QuickCustomizeModal';
-import { AnimeFightTransition } from './components/AnimeFightTransition';
 import { AUDIO_TRACKS } from './data/audioTracks';
 
 const STORAGE_KEY_PERSONAL = 'salim_portfolio_personal_v2';
 const STORAGE_KEY_SEMESTERS = 'salim_portfolio_semesters_v2';
-
-// Sections allowed to trigger the Anime Fight Scene transition (Home, About, Contact only)
-const FIGHTING_TRANSITION_SECTIONS = new Set(['home', 'about', 'contact']);
 
 export function App() {
   // Personal & Semester State (supports live browser customization + localStorage persistence)
@@ -70,11 +66,7 @@ export function App() {
   } | null>(null);
   const [customizeOpen, setCustomizeOpen] = useState<boolean>(false);
 
-  // 🎬 Full-Screen 3-Second Anime Fight Scene Transition
-  const [transitionTarget, setTransitionTarget] = useState<string | null>(null);
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-
-  // Background Audio Player (3 user-selected anime/chill tracks with loop, pause, and track switching)
+  // Background Audio Player (3 chill tracks with loop, pause, and track switching)
   const [isPlayingMusic, setIsPlayingMusic] = useState<boolean>(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -209,50 +201,16 @@ export function App() {
     }
   };
 
-  // Navigation: Full-Screen Anime Fight Scene Transition ONLY for Home, About, and Contact
+  // Navigation: Direct smooth scrolling to target sections
   const handleNavigate = useCallback(
     (targetId: string) => {
-      // Prevent repeated clicks from overlapping or interrupting the animation
-      if (isTransitioning) return;
-
       const el = document.getElementById(targetId);
-
-      // If user enabled reducedMotion or target is NOT in ['home', 'about', 'contact'], scroll directly and smoothly
-      if (reducedMotion || !FIGHTING_TRANSITION_SECTIONS.has(targetId)) {
-        if (el) {
-          el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
-        }
-        return;
+      if (el) {
+        el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
       }
-
-      // If already at target section (e.g. clicking Home while already at the top), smooth scroll without replaying video
-      if (activeSection === targetId && targetId === 'home' && window.scrollY < 120) {
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-        return;
-      }
-
-      // Duck background Lo-Fi music during the intense battle sound effects
-      if (isPlayingMusic && audioRef.current) {
-        audioRef.current.volume = 0.08;
-      }
-
-      setTransitionTarget(targetId);
-      setIsTransitioning(true);
     },
-    [isTransitioning, reducedMotion, isPlayingMusic, activeSection]
+    [reducedMotion]
   );
-
-  const handleTransitionComplete = useCallback(() => {
-    setIsTransitioning(false);
-    setTransitionTarget(null);
-
-    // Restore background Lo-Fi music volume
-    if (audioRef.current) {
-      audioRef.current.volume = 0.65;
-    }
-  }, []);
 
   // Global internal link interceptor: captures all <a href="#section"> clicks across the entire site
   useEffect(() => {
@@ -274,7 +232,6 @@ export function App() {
   }, [handleNavigate]);
 
   const scrollToTop = () => {
-    if (isTransitioning) return;
     handleNavigate('home');
   };
 
@@ -422,13 +379,6 @@ export function App() {
         onUpdatePersonal={handleUpdatePersonal}
         onUpdateSemesterSgpa={handleUpdateSemesterSgpa}
         onResetDefaults={handleResetDefaults}
-      />
-
-      {/* 🎬 3-Second Full-Screen Anime Fight Scene Transition Overlay */}
-      <AnimeFightTransition
-        targetSection={transitionTarget}
-        isActive={isTransitioning}
-        onComplete={handleTransitionComplete}
       />
     </div>
   );

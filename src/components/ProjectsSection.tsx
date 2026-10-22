@@ -65,7 +65,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         })),
         {
           url: flagshipProject.image,
-          label: 'Anime Concept Art',
+          label: 'Architecture Overview',
         },
       ]
     : [];

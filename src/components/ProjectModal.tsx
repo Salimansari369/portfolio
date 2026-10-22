@@ -49,7 +49,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     })),
     {
       url: project.image,
-      label: 'Anime Concept Art',
+      label: 'Architecture Overview',
     },
   ];
 

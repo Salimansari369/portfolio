@@ -24,7 +24,6 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ personal, aboutJournal }) => {
   const [activeTab, setActiveTab] = useState<'story' | 'goals' | 'career'>('story');
-  const [showRealPhoto, setShowRealPhoto] = useState<boolean>(true);
   const introVideoRef = useRef<HTMLVideoElement | null>(null);
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
   const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(true);
@@ -72,30 +71,18 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ personal, aboutJourn
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Real Portrait / Anime Avatar Toggle & Quick Profile Card (5 cols) */}
         <div className="lg:col-span-5 anime-glass-card rounded-3xl p-6 relative overflow-hidden">
-          {/* Portrait Mode Switcher (Real Portrait vs Anime Avatar) */}
+          {/* Executive Portrait Card */}
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-bold uppercase tracking-wider text-indigo-700">
-              {showRealPhoto ? 'Real Portrait' : 'Anime Persona'}
+              Executive Profile
             </span>
-            <button
-              type="button"
-              onClick={() => setShowRealPhoto((prev) => !prev)}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 transition-colors cursor-pointer"
-            >
-              <Camera className="w-3.5 h-3.5" />
-              <span>{showRealPhoto ? 'Switch to Anime Art' : 'View Real Photo'}</span>
-            </button>
           </div>
 
           <div className="relative py-2 flex flex-col items-center">
             <div className="relative rounded-full overflow-hidden border-4 border-white shadow-xl aspect-square w-60 sm:w-64 bg-white">
               <img
-                src={showRealPhoto ? personal.realPhotoImage : personal.avatarImage}
-                alt={
-                  showRealPhoto
-                    ? 'Salim Ansari — Personal Photograph'
-                    : 'Salim Ansari — Original Anime Developer Portrait'
-                }
+                src={personal.realPhotoImage}
+                alt="Salim Ansari — AI Engineer & Developer"
                 loading="lazy"
                 draggable={false}
                 className="w-full h-full object-cover rounded-full transition-all duration-500"
