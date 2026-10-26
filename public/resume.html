@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salim Ansari — Resume / Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #334155;
+      --accent: #0284c7;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      line-height: 1.5;
+      font-size: 13.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .toolbar h1 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #0284c7;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #334155;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    .page {
+      max-width: 850px;
+      margin: 32px auto;
+      background: var(--bg);
+      padding: 48px 56px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 4px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      font-size: 12.5px;
+      color: var(--secondary);
+    }
+
+    .contact-info a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .entry {
+      margin-bottom: 12px;
+      page-break-inside: avoid;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .entry-subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+
+    .entry-date {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .entry-location {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    ul.bullets {
+      list-style-type: disc;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    ul.bullets li {
+      margin-bottom: 3px;
+      font-size: 12.5px;
+      color: #334155;
+      text-align: justify;
+    }
+
+    ul.bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 6px;
+      font-size: 12.5px;
+    }
+
+    .skill-category {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .skill-list {
+      color: #334155;
+    }
+
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      margin-bottom: 4px;
+    }
+
+    .cert-item span.cert-name {
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .cert-item span.cert-issuer {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media print {
+      body {
+        background: white;
+        font-size: 11.5pt;
+        color: black;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .page {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+
+      header h1 {
+        font-size: 22pt;
+      }
+
+      .section-title {
+        font-size: 11pt;
+        border-color: #000;
+      }
+
+      ul.bullets li {
+        font-size: 10pt;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar (Hidden when printing to PDF) -->
+  <div class="toolbar">
+    <h1>Salim Ansari — Professional CV / Resume</h1>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+        Print / Save as PDF
+      </button>
+      <a href="/" class="btn btn-secondary">
+        ← Back to Portfolio
+      </a>
+    </div>
+  </div>
+
+  <main class="page">
+    <!-- Header -->
+    <header>
+      <h1>Salim Ansari</h1>
+      <div class="headline">AI/ML Engineer &bull; Full-Stack Software Developer</div>
+      <div class="contact-info">
+        <span>Nagpur, Maharashtra, India</span>
+        <span>&bull;</span>
+        <span>+91 9730635697</span>
+        <span>&bull;</span>
+        <a href="mailto:shamimversion0.1@gmail.com">shamimversion0.1@gmail.com</a>
+        <span>&bull;</span>
+        <a href="https://github.com/Salimansari369" target="_blank">github.com/Salimansari369</a>
+        <span>&bull;</span>
+        <a href="https://www.linkedin.com/in/salim-ansari-3195b33a8/" target="_blank">linkedin.com/in/salim-ansari-3195b33a8</a>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section>
+      <div class="section-title">Professional Summary</div>
+      <p style="text-align: justify; font-size: 12.5px; color: #334155;">
+        Third-year B.Tech Computer Science & Engineering student specializing in <strong>Artificial Intelligence & Machine Learning</strong> at <strong>Symbiosis Institute of Technology (SIT), Nagpur</strong> (PRN: 24070521005, Batch 2024–2028). Proven expertise architecting autonomous multi-agent research pipelines, RAG frameworks, and full-stack web platforms with published academic research with <strong>Springer</strong>. Industry-tested as a Full-Stack Web Developer Intern at Maincrafts Technology, shipping production microservices with clean architectural documentation.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="section-title">Education</div>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Symbiosis Institute of Technology (SIT), Nagpur</span>
+            <span class="entry-subtitle"> &mdash; Symbiosis International (Deemed University)</span>
+          </div>
+          <span class="entry-date">Aug 2024 &ndash; Jun 2028</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-subtitle">Bachelor of Technology (B.Tech) in Computer Science & Engineering (AI & ML)</span>
+          <span class="entry-location">Nagpur, Maharashtra</span>
+        </div>
+        <ul class="bullets">
+          <li><strong>Coursework:</strong> Artificial Intelligence & Machine Learning, Data Structures & Algorithms, Design & Analysis of Algorithms, Compiler Construction (Lex/Yacc), Database Management Systems (SQL/PL-SQL), Microprocessors, Linear Algebra, and Full-Stack Web Development.</li>
+        </ul>
+      </div>
+
+      <div class="entry" style="margin-top: 8px;">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Dr. Bower Apostolic Jr. College, Ajni</span>
+            <span class="entry-subtitle"> &mdash; Higher Secondary Certificate (HSC)</span>
+          </div>
+          <span class="entry-date">2022 &ndash; 2024</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-subtitle">Senior Secondary (Physics, Chemistry, Mathematics & Computer Science)</span>
+          <span class="entry-location">Nagpur, Maharashtra</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+      <div class="section-title">Work Experience</div>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Maincrafts Technology</span>
+            <span class="entry-subtitle"> &mdash; Full-Stack Web Developer Intern (ID: MT4008)</span>
+          </div>
+          <span class="entry-date">May 2026 &ndash; Jul 2026</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-subtitle">Mentorship under Mr. Ujjwal (Founder)</span>
+          <span class="entry-location">Nagpur, India</span>
+        </div>
+        <ul class="bullets">
+          <li>Architected and deployed 3 core web applications: <strong>NOIRÉ</strong> (Luxury perfume brand landing experience with semantic HTML5 and CSS Grid), <strong>MediLinks</strong> (Healthcare consultation and doctor appointment engine with dynamic LocalStorage queue), and <strong>CampusCare</strong> (Campus issue reporting ticketing portal with Flask REST API).</li>
+          <li>Engineered cross-browser responsive interfaces and linked backend handlers in Node.js, Express.js, and Flask.</li>
+          <li>Authored technical project documentation and defended deliverables during the official SIT Nagpur Industry Internship Seminar.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Flagship Projects -->
+    <section>
+      <div class="section-title">Key Projects</div>
+
+      <!-- Project 1 -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">LiteratureAI — Automated Research Review Assistant</span>
+            <span class="entry-subtitle"> | <em>Python, Gradio, PyMuPDF, Whisper STT, Groq Llama-3</em></span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/Salimansari369/Automated-Research-Review-Assistant" target="_blank" style="color: var(--accent); text-decoration: none;">GitHub &nearr;</a></span>
+        </div>
+        <ul class="bullets">
+          <li>Architected an autonomous 6-stage literature exploration system federating Semantic Scholar, OpenAlex, Crossref, and arXiv APIs in parallel with automatic deduplication.</li>
+          <li>Engineered a deterministic relevance algorithm ensuring <strong>0% hallucination</strong> alongside automated extraction of 6 critical analytical dimensions (Problem, Methodology, Dataset, Findings, Limitations, Future Directions).</li>
+          <li>Integrated speech-driven RAG querying via <strong>OpenAI Whisper STT</strong> and automated export of 7-section publication-ready IEEE-referenced Word (.docx) reviews and CSV comparison matrices.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">CampusCare — Smart Campus Issue Reporting & ML Suite</span>
+            <span class="entry-subtitle"> | <em>Python, Flask, SQLite, Scikit-Learn, Pandas</em></span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/Salimansari369/Hack-o-Week-odd-5sem-2026-2027" target="_blank" style="color: var(--accent); text-decoration: none;">GitHub &nearr;</a></span>
+        </div>
+        <ul class="bullets">
+          <li>Constructed an automated campus maintenance ticketing platform with student submission portal and staff administrative dashboard.</li>
+          <li>Engineered accompanying Machine Learning analytics suite featuring PCA & t-SNE dimensionality reduction, K-Means clustering, and supervised regression models for hostel operations data.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">MediLinks — Healthcare Services & Appointment Booking</span>
+            <span class="entry-subtitle"> | <em>Node.js, Express.js, JavaScript, HTML5/CSS3</em></span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/Salimansari369/medilink" target="_blank" style="color: var(--accent); text-decoration: none;">GitHub &nearr;</a></span>
+        </div>
+        <ul class="bullets">
+          <li>Built a patient-facing multi-page healthcare portal featuring doctor specialty filtering, appointment scheduling, and real-time form validation with Node.js/Express.js backend endpoints.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Publications & Research -->
+    <section>
+      <div class="section-title">Publications & Research</div>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Published Academic Research Copy</span>
+            <span class="entry-subtitle"> &mdash; Springer Publication</span>
+          </div>
+          <span class="entry-date">Verified Milestone</span>
+        </div>
+        <ul class="bullets">
+          <li>Authored scholarly research focusing on Deep Learning architectures, Machine Learning evaluation benchmarks, and Applied Computing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-category">Languages:</div>
+        <div class="skill-list">Python (3.10+), C, C++, JavaScript (ES6+), Java, SQL, PL/SQL</div>
+
+        <div class="skill-category">AI / Machine Learning:</div>
+        <div class="skill-list">Agentic AI, Multi-Agent Systems, PyTorch, Scikit-Learn, NLP, LLMs, RAG, OpenAI Whisper STT, PyMuPDF, Pandas, NumPy, Plotly, PCA, t-SNE, Clustering</div>
+
+        <div class="skill-category">Web & Backend:</div>
+        <div class="skill-list">React, Vite, Node.js, Express.js, Flask REST APIs, HTML5, CSS3, Tailwind CSS, Gradio, Streamlit, Jinja2</div>
+
+        <div class="skill-category">Databases & Cloud:</div>
+        <div class="skill-list">SQLite, MySQL, MongoDB, AWS with AI (Certified), LocalStorage APIs</div>
+
+        <div class="skill-category">Tools & Systems:</div>
+        <div class="skill-list">Git, GitHub (19+ Repos), GitHub Actions, VS Code, Jupyter, Lex/Flex & Yacc/Bison, Linux, Windows</div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <div class="section-title">Certifications & Honors</div>
+      <div class="cert-item">
+        <span class="cert-name">&bull; Full Stack Web Developer Internship Certificate &mdash; Maincrafts Technology</span>
+        <span class="cert-issuer">UDYAM-UP-75-0096043 (MT4008)</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">&bull; AWS with AI Certification &mdash; Unstop</span>
+        <span class="cert-issuer">Cloud AI Architecture</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">&bull; CSS with AI Certification &mdash; Unstop</span>
+        <span class="cert-issuer">Modern UI/UX Design</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">&bull; Node JS Certification &mdash; Unstop</span>
+        <span class="cert-issuer">Asynchronous Backend Development</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">&bull; C++ Programming Certification &mdash; Unstop</span>
+        <span class="cert-issuer">Algorithms & OOP</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">&bull; ENTHUSIA 5.0 Stage Felicitation &mdash; Symbiosis Institute of Technology, Nagpur</span>
+        <span class="cert-issuer">Powered by Unstop</span>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
